@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Navbar from "./components/Navbar";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import ShowMore from "./components/ShowMore";
+import TextHide from "./components/TextHide";
+import SkrollBar from "./components/SkrollBar";
+import Pagination from "./components/Pagination";
+import Rating from "./components/Rating";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<ShowMore />} />
+          <Route path="/second" element={<TextHide />} />
+          <Route path="/third" element={<SkrollBar />} />
+          <Route path="/fourth" element={<Pagination />} />
+          <Route path="/fifth" element={<Rating />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
-}
+};
 
 export default App;
